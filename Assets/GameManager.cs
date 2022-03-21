@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
 
         text.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
-        questionsLeftText.text = string.Format("Time: {0:00}:{1:00}, Questions Left: {2}/{3}", minutes, seconds, questionsCompleted, questionsLeft);
+        questionsLeftText.text = string.Format("Time: {0:00}:{1:00}, Questions Completed: {2}/{3}", minutes, seconds, questionsCompleted, questionsLeft);
     }
 
     public GameObject analyzer;

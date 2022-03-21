@@ -15,4 +15,35 @@ MonoBehaviour:
   name: brain
   id: 0
   sprite: {fileID: 21300000, guid: 7c8b07bc6141bc84e9cde77847411aed, type: 3}
-  questions: []
+  questions:
+  - question: This system controls everything you do.
+    answer: Nervous system
+    wrongAnswers:
+    - Olfactory system
+    - Respiratory system
+    - 'Endocrine system '
+  - question: 'The nervous system is made up of these three parts:'
+    answer: Brain, spinal cord, and nerves
+    wrongAnswers:
+    - Brain, heart and spinal cord
+    - Nerves, arteries and veins
+    - Nerves, liver and heart
+  - question: Which part of the body is the control center for the nervous system?
+    answer: Brain
+    wrongAnswers:
+    - Spinal cord
+    - Stomach
+    - Heart
+  - question: A typical brain weighs how much?
+    answer: 1.4kg
+    wrongAnswers:
+    - 85g
+    - 2.7 tons
+    - 3kg
+  - question: "Which part of the brain helps keep your balance so you don\u2019t
+      fall flat on your face?"
+    answer: Cerebellum
+    wrongAnswers:
+    - Medulla oblongata
+    - Pituitary gland
+    - Spinal cord

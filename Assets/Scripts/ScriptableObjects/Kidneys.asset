@@ -15,4 +15,21 @@ MonoBehaviour:
   name: kidneys
   id: 0
   sprite: {fileID: 21300000, guid: f9d4bf536a861334089ced19633769a3, type: 3}
-  questions: []
+  questions:
+  - question: Your kidneys are what part of which system in your body?
+    answer: Urinary system
+    wrongAnswers:
+    - Reproductive system
+    - Respiratory system
+    - Gastrointestinal tract
+  - question: What do your kidneys do?
+    answer: They filter out waste and extra fluid from the blood
+    wrongAnswers:
+    - They aid in digestion and help regulate metabolism
+    - They destroy old red blood cells
+  - question: The term "renal" means related to
+    answer: Kidneys
+    wrongAnswers:
+    - Blood sugar
+    - Part of the eye
+    - Cholesterol

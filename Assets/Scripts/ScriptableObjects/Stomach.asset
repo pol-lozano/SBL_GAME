@@ -15,4 +15,22 @@ MonoBehaviour:
   name: stomach
   id: 0
   sprite: {fileID: 21300000, guid: 21b654299b5e49a4ab0aad1c555df9ec, type: 3}
-  questions: []
+  questions:
+  - question: What tube moves food from the back of your throat to the stomach?
+    answer: Esophagus
+    wrongAnswers:
+    - Epiglottis
+    - Feeding tube
+    - Pharynx
+  - question: How long does it take food to reach your stomach?
+    answer: 'About 2 to 3 seconds '
+    wrongAnswers:
+    - Less than 1 second
+    - About 30 seconds
+    - About 5 minutes
+  - question: Which of these digests the fastest?
+    answer: Carbohydrates
+    wrongAnswers:
+    - Protein
+    - Fat
+    - A meal including all of the above

@@ -12,19 +12,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Organ[] organs;
     [SerializeField] private GameObject organTemplate;
     [SerializeField] private GameObject quizPanel;
+    [SerializeField] private GameObject endPanel;
 
     [SerializeField] private Organ currentOrgan;
 
     private int questionsCompleted;
     private int questionsLeft;
 
+    private float bloodLeft = 100;
+
     static public Dictionary<Organ, bool> organAnalyzed = new Dictionary<Organ, bool>();
+    static public int organsFixed = 0;
 
     public Text questionsLeftText;
     public Text questionText;
     public Text option1Text;
     public Text option2Text;
     public Text option3Text;
+
+    public Text operationCompleteText;
+
+    public AudioClip rightAnswer;
+    public AudioClip wrongAnswer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,20 +54,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool gameEnded = false;
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
+        bloodLeft -= Time.deltaTime/20;
+        if (bloodLeft < 0) bloodLeft = 0;
         UpdateUI();
+        if(bloodLeft <= 0 || organsFixed >= 11)
+        {
+            if (gameEnded == false)
+            {
+                gameEnded = true;
+                EndGame();
+            }
+        }
     }
 
     void UpdateUI()
     {
         float minutes = Mathf.FloorToInt(time/60);
-        float seconds = Mathf.FloorToInt(time % 60);
+        float seconds = Mathf.FloorToInt(time%60);
 
-        text.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
-        questionsLeftText.text = string.Format("Time: {0:00}:{1:00}, Questions Completed: {2}/{3}", minutes, seconds, questionsCompleted, questionsLeft);
+        text.text = string.Format("Time: {0:00}:{1:00} Blood: {2:0.00}%", minutes, seconds, bloodLeft);
+        questionsLeftText.text = string.Format("Time: {0:00}:{1:00} Questions Completed: {2}/{3} Blood: {4:0.00}%", minutes, seconds, questionsCompleted, questionsLeft, bloodLeft);
     }
 
     public GameObject analyzer;
@@ -117,7 +138,7 @@ public class GameManager : MonoBehaviour
     {
         if(i == correctAnswer)
         {
-            //Blink Green
+            AudioSource.PlayClipAtPoint(rightAnswer, Vector3.zero);
             Debug.Log("Correct Answer");
             questionsCompleted++;
             index++;
@@ -125,8 +146,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //Blink Red
-            Debug.Log("Wrong Answer" + correctAnswer + i);
+            AudioSource.PlayClipAtPoint(wrongAnswer, Vector3.zero);
+            Debug.Log("Wrong Answer");
+            bloodLeft -= 2.5f;
         }
     }
 
@@ -137,4 +159,23 @@ public class GameManager : MonoBehaviour
         organParent.SetActive(true);
         quizPanel.SetActive(false);
     }
+
+    private void EndGame()
+    {
+        float finalTime = time;
+        float finalBlood = bloodLeft;
+        operationCompleteText.text = "(Organs Fixed: " + organsFixed + " * Cash Per Organ: " + 10000 + " - Time penalty: (-10 per sec) " + 10 + finalTime % 60 + ") * Blood Percentage: " + finalBlood + " = " + (organsFixed * 10000 - 10 * (finalTime % 60)) * finalBlood;
+        endPanel.SetActive(true);
+    }
+
+    public void RestartLevel()
+    {
+        Application.LoadLevel(1);
+    }
+
+    public void ExitToMainMenu()
+    {
+        Application.LoadLevel(0);
+    }
+
 }

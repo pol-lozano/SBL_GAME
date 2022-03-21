@@ -15,4 +15,31 @@ MonoBehaviour:
   name: liver
   id: 0
   sprite: {fileID: 21300000, guid: c14b9e96ec72f4548bc3800c7a21eec3, type: 3}
-  questions: []
+  questions:
+  - question: "The liver\u2019s role is to:"
+    answer: Remove harmful substances from the blood
+    wrongAnswers:
+    - Mash up food
+    - Create energy
+    - Help the stomach
+  - question: What does the liver do to help digestion?
+    answer: Produce bile
+    wrongAnswers:
+    - Make important enzymes
+    - Neutralize stomach acid
+    - Regulate insulin
+  - question: 'An adult liver weighs:'
+    answer: 1.4 to 1.6kg
+    wrongAnswers:
+    - 1.2 to 1.4kg
+    - 1.6 to 1.8kg
+    - 1.8 to 2.0kg
+  - question: 'The liver has the ability to regenerate if tissue is lost or damaged:'
+    answer: True
+    wrongAnswers:
+    - False
+  - question: 'Does Lester have a liver? '
+    answer: I suck cock but at least I eat pussy
+    wrongAnswers:
+    - When he's drinking? Yeah
+    - When he's drinking? No

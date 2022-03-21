@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   canvasGroup: {fileID: 0}
+  bloodSound: {fileID: 0}
 --- !u!225 &4260528380806654264
 CanvasGroup:
   m_ObjectHideFlags: 0

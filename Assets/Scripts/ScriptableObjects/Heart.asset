@@ -15,4 +15,35 @@ MonoBehaviour:
   name: heart
   id: 0
   sprite: {fileID: 21300000, guid: f8e8d64d09f9c8d4caab6545ad443f31, type: 3}
-  questions: []
+  questions:
+  - question: The heart is a part of what system of organs?
+    answer: Circulatory
+    wrongAnswers:
+    - Integumentary
+    - Reproductive
+    - Nervous
+  - question: Your heart rate is the number of times your heart beats per what?
+    answer: Minute
+    wrongAnswers:
+    - Second
+    - Millisecond
+    - Hour
+  - question: The normal resting heart rate for an adult should range from what two
+      numbers?
+    answer: 60 and 100
+    wrongAnswers:
+    - 26 and 50
+    - 100 and 150
+    - 1 and 25
+  - question: How many valves does the heart have?
+    answer: 4
+    wrongAnswers:
+    - 2
+    - 1
+    - 3
+  - question: The heart is about as big as what body part?
+    answer: Fist
+    wrongAnswers:
+    - Thumb
+    - Head
+    - Eye

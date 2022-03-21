@@ -15,4 +15,21 @@ MonoBehaviour:
   name: intestines
   id: 0
   sprite: {fileID: 21300000, guid: 55c7a406f72fd45408a5f36a211a10d6, type: 3}
-  questions: []
+  questions:
+  - question: "How long is an adult\u2019s small intestine?"
+    answer: 6.7m
+    wrongAnswers:
+    - 76.2cm
+    - 5.1m
+  - question: 'Your food can spend up to this long in the small intestine:'
+    answer: 4 hours
+    wrongAnswers:
+    - 4 minutes
+    - 4 months
+    - 4 seconds
+  - question: 'The large intestine measures about:'
+    answer: 1.5m
+    wrongAnswers:
+    - 30cm
+    - 3m
+    - 30,48m

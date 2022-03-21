@@ -15,4 +15,22 @@ MonoBehaviour:
   name: spleen
   id: 0
   sprite: {fileID: 21300000, guid: cd5a654ebdf3e0e4c8493ee47be502d9, type: 3}
-  questions: []
+  questions:
+  - question: The spleen collects _______ that are old or not working properly.
+    answer: Red blood cells
+    wrongAnswers:
+    - Organs
+    - Digestive cells
+    - Neurons
+  - question: The spleen holds an extra supply of what?
+    answer: Blood
+    wrongAnswers:
+    - Oxygen
+    - Cells
+    - Neurons
+  - question: How much does the average adult spleen weigh?
+    answer: 200g
+    wrongAnswers:
+    - 40g
+    - 2kg
+    - 3.5kg

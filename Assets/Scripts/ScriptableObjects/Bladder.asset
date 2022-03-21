@@ -15,4 +15,19 @@ MonoBehaviour:
   name: bladder
   id: 0
   sprite: {fileID: 21300000, guid: 538c8d65127650c4aad7a942944563b3, type: 3}
-  questions: []
+  questions:
+  - question: "The bladder\u2019s role is to:"
+    answer: Store urine
+    wrongAnswers:
+    - Make urine
+    - Get rid of urine
+  - question: "When it\u2019s empty, your bladder is as big as a:"
+    answer: Pear
+    wrongAnswers:
+    - Walnut
+    - Grapefruit
+  - question: How much liquid can the bladder hold?
+    answer: 2 cups
+    wrongAnswers:
+    - "\xBD cup"
+    - 1 cup

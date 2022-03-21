@@ -59,34 +59,66 @@ public class GameManager : MonoBehaviour
     public GameObject analyzer;
     public void ScanOrgan()
     {
-        var organ = analyzer.GetComponent<ItemSlot>().currentOrgan;
-        if (organ != null)
+        currentOrgan = analyzer.GetComponent<ItemSlot>().currentOrgan;
+        if (currentOrgan != null && currentOrgan.analyzed != true)
         {
-            questionsLeft = organ.questions.Length;
+            questionsLeft = currentOrgan.questions.Length;
             questionsCompleted = 0;
 
-            SetQuestions(organ, 0);
+            SetQuestions(currentOrgan, 0);
         }
     }
 
+    int correctAnswer = -1;
     private void SetQuestions(Organ o, int index)
     {
         //End quiz when out of questions
         if(index++ >= o.questions.Length)
         {
+            currentOrgan.analyzed = true;
             EndQuiz();
             return;
         }
 
-        var currentQuestion = o.questions[Random.Range(0, o.questions.Length-1)];
-
+        var currentQuestion = o.questions[index];
         questionText.text = currentQuestion.question;
-        option1Text.text = currentQuestion.answer;
-        option2Text.text = currentQuestion.wrongAnswers[0];
-        option3Text.text = currentQuestion.wrongAnswers[1];
+
+        correctAnswer = 1 + Mathf.FloorToInt(Random.value * 3);
+        switch (correctAnswer)
+        {
+            case 1:
+                option1Text.text = currentQuestion.answer;
+                option2Text.text = currentQuestion.wrongAnswers[0];
+                option3Text.text = currentQuestion.wrongAnswers[1];
+                break;
+            case 2:
+                option1Text.text = currentQuestion.wrongAnswers[1];
+                option2Text.text = currentQuestion.answer;
+                option3Text.text = currentQuestion.wrongAnswers[0];
+                break;
+            case 3:
+                option1Text.text = currentQuestion.wrongAnswers[0];
+                option2Text.text = currentQuestion.wrongAnswers[1];
+                option3Text.text = currentQuestion.answer;
+                break;
+        }
 
         quizPanel.SetActive(true);
-        questionsCompleted++;
+    }
+
+    public void CheckAnswer(int i)
+    {
+        if(i == correctAnswer)
+        {
+            //Blink Green
+            Debug.Log("Correct Answer");
+            questionsCompleted++;
+        }
+        else
+        {
+            //Blink Red
+            Debug.Log("Wrong Answer");
+        }
     }
 
     private void EndQuiz()

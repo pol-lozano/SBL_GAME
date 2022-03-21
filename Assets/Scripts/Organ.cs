@@ -7,6 +7,7 @@ public class Organ : ScriptableObject
 {
     public string name;
     public int id;
+    public bool analyzed = false; //Are all questions for it answered or not
 
     public Sprite sprite;
     public QuizQuestion[] questions;

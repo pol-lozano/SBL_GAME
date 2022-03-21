@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4260528380806654261}
   - component: {fileID: 4260528380806654263}
   - component: {fileID: 4260528380806654264}
+  - component: {fileID: 7719362457051988176}
   m_Layer: 5
   m_Name: Organ
   m_TagString: Untagged
@@ -104,6 +105,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7719362457051988176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4260528380806654259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296ce48e54e24404c9b53ddf2d9dfe44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  organData: {fileID: 0}
 --- !u!1001 &2978885963379602672
 PrefabInstance:
   m_ObjectHideFlags: 0

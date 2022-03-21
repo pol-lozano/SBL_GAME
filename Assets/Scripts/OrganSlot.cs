@@ -7,6 +7,8 @@ public class OrganSlot : MonoBehaviour, IDropHandler
 {
     public Organ currentOrgan;
     public Organ[] organs;
+    public AudioClip organFixed;
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
@@ -18,6 +20,8 @@ public class OrganSlot : MonoBehaviour, IDropHandler
                 {
                     Debug.Log("Placed in correct slot");
                     GetComponentInChildren<ParticleSystem>().Play();
+                    AudioSource.PlayClipAtPoint(organFixed, Vector3.zero);
+                    GameManager.organsFixed++;
                     eventData.pointerDrag.gameObject.SetActive(false);
                 }
             }

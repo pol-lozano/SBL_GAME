@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private int questionsCompleted;
     private int questionsLeft;
 
+    private Dictionary<Organ, bool> organAnalyzed = new Dictionary<Organ, bool>();
+
     public Text questionsLeftText;
     public Text questionText;
     public Text option1Text;
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
             r.anchoredPosition = new Vector3(Random.Range(-300,300),Random.Range(-50,25));
             r.localScale = Vector3.one;
             temp.GetComponent<OrganHolder>().organData = o;
+
+            organAnalyzed.Add(o, false);
         }
     }
 
@@ -60,30 +64,32 @@ public class GameManager : MonoBehaviour
     public void ScanOrgan()
     {
         currentOrgan = analyzer.GetComponent<ItemSlot>().currentOrgan;
-        if (currentOrgan != null && currentOrgan.analyzed != true)
+        if (currentOrgan != null && organAnalyzed[currentOrgan] == false)
         {
             questionsLeft = currentOrgan.questions.Length;
             questionsCompleted = 0;
+            index = 0;
 
-            SetQuestions(currentOrgan, 0);
+            SetQuestions();
         }
     }
 
     int correctAnswer = -1;
-    private void SetQuestions(Organ o, int index)
+    int index = 0;
+
+    private void SetQuestions()
     {
         //End quiz when out of questions
-        if(index++ >= o.questions.Length)
+        if(index >= currentOrgan.questions.Length)
         {
-            currentOrgan.analyzed = true;
             EndQuiz();
             return;
         }
 
-        var currentQuestion = o.questions[index];
+        var currentQuestion = currentOrgan.questions[index];
         questionText.text = currentQuestion.question;
 
-        correctAnswer = 1 + Mathf.FloorToInt(Random.value * 3);
+        correctAnswer = Random.Range(1, 3);
         switch (correctAnswer)
         {
             case 1:
@@ -113,16 +119,20 @@ public class GameManager : MonoBehaviour
             //Blink Green
             Debug.Log("Correct Answer");
             questionsCompleted++;
+            index++;
+            SetQuestions();
         }
         else
         {
             //Blink Red
-            Debug.Log("Wrong Answer");
+            Debug.Log("Wrong Answer" + correctAnswer + i);
         }
     }
 
     private void EndQuiz()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Quiz Ended");
+        organAnalyzed[currentOrgan] = true;
+        quizPanel.SetActive(false);
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Intestines
   m_EditorClassIdentifier: 
   name: intestines
-  id: 0
+  id: 4
   sprite: {fileID: 21300000, guid: 55c7a406f72fd45408a5f36a211a10d6, type: 3}
   questions:
   - question: "How long is an adult\u2019s small intestine?"

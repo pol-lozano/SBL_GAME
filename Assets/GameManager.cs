@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private int questionsCompleted;
     private int questionsLeft;
 
-    private Dictionary<Organ, bool> organAnalyzed = new Dictionary<Organ, bool>();
+    static public Dictionary<Organ, bool> organAnalyzed = new Dictionary<Organ, bool>();
 
     public Text questionsLeftText;
     public Text questionText;
@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        organParent.SetActive(false);
         quizPanel.SetActive(true);
     }
 
@@ -133,6 +134,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Quiz Ended");
         organAnalyzed[currentOrgan] = true;
+        organParent.SetActive(true);
         quizPanel.SetActive(false);
     }
 }

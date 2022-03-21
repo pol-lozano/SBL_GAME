@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kidneys
   m_EditorClassIdentifier: 
   name: kidneys
-  id: 0
+  id: 5
   sprite: {fileID: 21300000, guid: f9d4bf536a861334089ced19633769a3, type: 3}
   questions:
   - question: Your kidneys are what part of which system in your body?

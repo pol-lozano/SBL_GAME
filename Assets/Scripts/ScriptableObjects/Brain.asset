@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Brain
   m_EditorClassIdentifier: 
   name: brain
-  id: 0
+  id: 1
   sprite: {fileID: 21300000, guid: 7c8b07bc6141bc84e9cde77847411aed, type: 3}
   questions:
   - question: This system controls everything you do.

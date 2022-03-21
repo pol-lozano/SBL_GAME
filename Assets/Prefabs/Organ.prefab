@@ -93,7 +93,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   canvasGroup: {fileID: 0}
-  bloodSound: {fileID: 0}
 --- !u!225 &4260528380806654264
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -173,6 +172,10 @@ PrefabInstance:
     - target: {fileID: 1330619065201844982, guid: 87d3602325cfe444abf8a26a03246261, type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330619065201844982, guid: 87d3602325cfe444abf8a26a03246261, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d3602325cfe444abf8a26a03246261, type: 3}

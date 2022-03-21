@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pancreas
   m_EditorClassIdentifier: 
   name: pancreas
-  id: 0
+  id: 8
   sprite: {fileID: 21300000, guid: 3f8cf69725a8bfa48bbb9a09e9fe8ca5, type: 3}
   questions:
   - question: What does your pancreas do?
